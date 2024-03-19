@@ -43,7 +43,11 @@ public final class CadastroCidade_jsp extends org.apache.jasper.runtime.HttpJspB
 
       out.write('\n');
  //Todo código java
-String nome = "Gustavo";
+String nomeCidade = request.getParameter("nomeCidade"); // Vem do ListarCidade.jsp
+String ufCidade = request.getParameter("ufCidade");
+String codigoCidade = request.getParameter("codigoCidade");
+String opcao = request.getParameter("opcao");
+
 
       out.write("\n");
       out.write("\n");
@@ -61,11 +65,15 @@ String nome = "Gustavo";
       out.write("       <form name=\"cadastro\"  method=\"get\"  action=\"CAECidade.jsp\">\n");
       out.write("            \n");
       out.write("            <p> <label>Cidade:<label/>\n");
-      out.write("                <input type=\"text\" name=\"nomeCidade\" value=\"\" size=\"40\" />\n");
+      out.write("                <input type=\"text\" name=\"nomeCidade\" value=\"");
+      out.print( nomeCidade);
+      out.write("\" size=\"40\" />\n");
       out.write("            </p>\n");
       out.write("            \n");
-      out.write("            <p> <label>Cidade:<label/>\n");
-      out.write("                <input type=\"text\" name=\"ufCidade\" value=\"\" size=\"5\" />\n");
+      out.write("            <p> <label>UF:<label/>\n");
+      out.write("                <input type=\"text\" name=\"ufCidade\" value=\"");
+      out.print( ufCidade);
+      out.write("\" size=\"5\" />\n");
       out.write("            </p>\n");
       out.write("            \n");
       out.write("            <input type=\"submit\" value=\"Cadastrar\" name=\"Cadastrar\" />\n");

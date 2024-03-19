@@ -4,7 +4,11 @@
     Author     : 15937447654
 --%>
 <% //Todo código java
-String nome = "Gustavo";
+String nomeCidade = request.getParameter("nomeCidade"); // Vem do ListarCidade.jsp
+String ufCidade = request.getParameter("ufCidade");
+String codigoCidade = request.getParameter("codigoCidade");
+String opcao = request.getParameter("opcao");
+
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,11 +25,11 @@ String nome = "Gustavo";
        <form name="cadastro"  method="get"  action="CAECidade.jsp">
             
             <p> <label>Cidade:<label/>
-                <input type="text" name="nomeCidade" value="" size="40" />
+                <input type="text" name="nomeCidade" value="<%= nomeCidade%>" size="40" />
             </p>
             
             <p> <label>UF:<label/>
-                <input type="text" name="ufCidade" value="" size="5" />
+                <input type="text" name="ufCidade" value="<%= ufCidade%>" size="5" />
             </p>
             
             <input type="submit" value="Cadastrar" name="Cadastrar" />
