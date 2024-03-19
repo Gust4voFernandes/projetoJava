@@ -62,9 +62,9 @@ public class DAOCidade {
             pst.setString(2, objCidade.getUfCidade());
             pst.setInt(3, objCidade.getCodigoCidade());
             if(pst.executeUpdate()>0){
-                mensagem = "Cidade Alterada com sucesso!";
+                mensagem = "Cidade alterada com sucesso!";
             }else{
-                mensagem = "Cidade não Alterada";
+                mensagem = "Cidade não alterada";
             }
         }catch(SQLException ex){
             mensagem = "Erro de SQL no método 'alterarCidade' da classe 'DAOCIdade': "+ex.getMessage()+"\n Comando SQL: "+sql;

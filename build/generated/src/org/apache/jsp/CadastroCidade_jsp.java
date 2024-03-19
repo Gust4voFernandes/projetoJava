@@ -38,7 +38,7 @@ public final class CadastroCidade_jsp extends org.apache.jasper.runtime.HttpJspB
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html;charset=Latin1");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -56,7 +56,13 @@ String ufCidade = request.getParameter("ufCidade");
 String codigoCidade = request.getParameter("codigoCidade");
 String opcao = request.getParameter("opcao");
 String mensagem = request.getParameter("mensagem");// vem do CAECidade
-if(opcao==null)opcao="cadastrar";
+if(opcao==null){
+    opcao="cadastrar";
+}
+
+if(codigoCidade==null){
+    codigoCidade="0";
+}
 
       out.write("\n");
       out.write("\n");
@@ -64,7 +70,7 @@ if(opcao==null)opcao="cadastrar";
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=Latin1\">\n");
       out.write("        <title>Cadastro de Cidade</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -156,16 +162,16 @@ List<Cidade> listaCidade = objDAOCidade.listarCidade();
       out.write(" </td>\n");
       out.write("            <td><a href=\"CadastroCidade.jsp?opcao=alterar&codigoCidade=");
       out.print( cidade.getCodigoCidade() );
-      out.write(" &nomeCidade=");
+      out.write("&nomeCidade=");
       out.print( cidade.getNomeCidade() );
-      out.write(" &ufCidade=");
+      out.write("&ufCidade=");
       out.print( cidade.getUfCidade() );
       out.write("\">alterar</a></td>\n");
       out.write("            <td><a href=\"CadastroCidade.jsp?opcao=excluir&codigoCidade=");
       out.print( cidade.getCodigoCidade() );
-      out.write(" &nomeCidade=");
+      out.write("&nomeCidade=");
       out.print( cidade.getNomeCidade() );
-      out.write(" &ufCidade=");
+      out.write("&ufCidade=");
       out.print( cidade.getUfCidade() );
       out.write("\">excluir </a></td>\n");
       out.write("        </tr>\n");

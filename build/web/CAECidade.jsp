@@ -15,17 +15,12 @@ objCidade.setUfCidade(ufCidade);
 DAOCidade objDAOCidade = new DAOCidade();
 if(opcao.equals("cadastrar")){
     mensagem = objDAOCidade.inserirCidade(objCidade);
-}   
-
-if(opcao.equals("alterar")){
-    //mensagem = objDAOCidade.inserirCidade(objCidade);
+} else if(opcao.equals("alterar")){
+    mensagem = objDAOCidade.alterarCidade(objCidade);
+} else if(opcao.equals("excluir")){
+    mensagem = objDAOCidade.excluirCidade(objCidade);
 } 
 
-if(opcao.equals("excluir")){
-    //mensagem = objDAOCidade.inserirCidade(objCidade);
-} 
-
-mensagem = objDAOCidade.inserirCidade(objCidade);
 response.sendRedirect("CadastroCidade.jsp?mensagem="+mensagem);
 
 %>
