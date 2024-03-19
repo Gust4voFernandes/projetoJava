@@ -9,6 +9,7 @@ String ufCidade = request.getParameter("ufCidade");
 String codigoCidade = request.getParameter("codigoCidade");
 String opcao = request.getParameter("opcao");
 String mensagem = request.getParameter("mensagem");// vem do CAECidade
+if(opcao==null)opcao="cadastrar";
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -31,11 +32,23 @@ String mensagem = request.getParameter("mensagem");// vem do CAECidade
             <p> <label>UF:<label/>
                 <input type="text" name="ufCidade" value="<%= (ufCidade==null)?"":ufCidade%>" size="5" />
             </p>
-            
+            <%if(opcao.equals("cadastrar")){%>
             <input type="submit" value="Cadastrar" name="Cadastrar" />
+            <%}%>
             
+            <%if(opcao.equals("alterar")){%>
+            <input type="submit" value="Alterar" name="Alterar" />
+            <%}%>
+            
+            <%if(opcao.equals("excluir")){%>
+            <input type="submit" value="Excluir" name="Excluir" />
+            <%}%>
+            
+            <input type="hidden" name="codigoCidade" value="<%= codigoCidade%>">
+            <input type="hidden" name="opcao" value="<%= opcao%>">
         </form>
             
             <%= (mensagem==null)?"":mensagem%>
+            <%@include file="ListarCidade.jsp" %> <!--Concatena o Cdastro com o Listar-->
     </body>
 </html>
