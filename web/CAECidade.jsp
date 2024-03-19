@@ -11,6 +11,7 @@ objCidade.setUfCidade(uf);
 
 DAOCidade objDAOCidade = new DAOCidade();
 mensagem = objDAOCidade.inserirCidade(objCidade);
+response.sendRedirect("CadastroCidade.jsp?mensagem="+mensagem);
 %>
 
 <%= mensagem%>

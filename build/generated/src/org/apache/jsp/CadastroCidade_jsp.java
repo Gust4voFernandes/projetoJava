@@ -47,7 +47,7 @@ String nomeCidade = request.getParameter("nomeCidade"); // Vem do ListarCidade.j
 String ufCidade = request.getParameter("ufCidade");
 String codigoCidade = request.getParameter("codigoCidade");
 String opcao = request.getParameter("opcao");
-
+String mensagem = request.getParameter("mensagem");// vem do CAECidade
 
       out.write("\n");
       out.write("\n");
@@ -65,20 +65,24 @@ String opcao = request.getParameter("opcao");
       out.write("       <form name=\"cadastro\"  method=\"get\"  action=\"CAECidade.jsp\">\n");
       out.write("            \n");
       out.write("            <p> <label>Cidade:<label/>\n");
-      out.write("                <input type=\"text\" name=\"nomeCidade\" value=\"");
-      out.print( nomeCidade);
-      out.write("\" size=\"40\" />\n");
+      out.write("                    <input type=\"text\" name=\"nomeCidade\" value=\"");
+      out.print( (nomeCidade==null)?"":nomeCidade);
+      out.write("\" size=\"40\" /><!--Operador ternário-->\n");
       out.write("            </p>\n");
       out.write("            \n");
       out.write("            <p> <label>UF:<label/>\n");
       out.write("                <input type=\"text\" name=\"ufCidade\" value=\"");
-      out.print( ufCidade);
+      out.print( (ufCidade==null)?"":ufCidade);
       out.write("\" size=\"5\" />\n");
       out.write("            </p>\n");
       out.write("            \n");
       out.write("            <input type=\"submit\" value=\"Cadastrar\" name=\"Cadastrar\" />\n");
       out.write("            \n");
       out.write("        </form>\n");
+      out.write("            \n");
+      out.write("            ");
+      out.print( (mensagem==null)?"":mensagem);
+      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

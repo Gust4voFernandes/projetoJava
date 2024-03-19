@@ -8,7 +8,7 @@ String nomeCidade = request.getParameter("nomeCidade"); // Vem do ListarCidade.j
 String ufCidade = request.getParameter("ufCidade");
 String codigoCidade = request.getParameter("codigoCidade");
 String opcao = request.getParameter("opcao");
-
+String mensagem = request.getParameter("mensagem");// vem do CAECidade
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,15 +25,17 @@ String opcao = request.getParameter("opcao");
        <form name="cadastro"  method="get"  action="CAECidade.jsp">
             
             <p> <label>Cidade:<label/>
-                <input type="text" name="nomeCidade" value="<%= nomeCidade%>" size="40" />
+                    <input type="text" name="nomeCidade" value="<%= (nomeCidade==null)?"":nomeCidade%>" size="40" /><!--Operador ternário-->
             </p>
             
             <p> <label>UF:<label/>
-                <input type="text" name="ufCidade" value="<%= ufCidade%>" size="5" />
+                <input type="text" name="ufCidade" value="<%= (ufCidade==null)?"":ufCidade%>" size="5" />
             </p>
             
             <input type="submit" value="Cadastrar" name="Cadastrar" />
             
         </form>
+            
+            <%= (mensagem==null)?"":mensagem%>
     </body>
 </html>
